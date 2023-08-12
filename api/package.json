@@ -2,8 +2,10 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "index.ts",
+  "scripts": {
+    "dev": "nodemon index.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
