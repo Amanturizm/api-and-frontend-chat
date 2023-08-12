@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, FormControl, FormLabel, TextareaAutosize } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 
 interface Props {
 	addMessage: (message: IMessage) => void;
@@ -28,30 +28,30 @@ const ChatForm: React.FC<Props> = ({ addMessage, showAlert }) => {
 	};
 
 	return (
-		<form onSubmit={onSubmit}>
-			<FormControl className="w-100">
-				<FormLabel htmlFor="my-input" className="text-light">Author:</FormLabel>
-				<input
-					type="text"
-					className="form-control mb-4"
-					id="my-input"
-					name="author"
-					value={formData.author}
-					onChange={changeFormData}
-				/>
+		<Box component="form" onSubmit={onSubmit} display="flex" flexDirection="column" className="bg-dark">
+			<TextField
+				autoComplete="off"
+				label="Author:"
+				name="author"
+				focused
+				inputProps={{ style: { color: 'white' } }}
+				value={formData.author}
+				onChange={changeFormData}
+			/>
 
-				<FormLabel htmlFor="my-input" className="text-light">Message:</FormLabel>
-				<TextareaAutosize
-					className="form-control mb-4"
-					id="my-input"
-					name="message"
-					value={formData.message}
-					onChange={changeFormData}
-				/>
+			<TextField
+				multiline rows={2}
+				label="Message:"
+				name="message"
+				focused
+				inputProps={{ style: { color: 'white' } }}
+				sx={{ margin: "10px 0" }}
+				value={formData.message}
+				onChange={changeFormData}
+			/>
 
-				<Button type="submit" variant="contained">Send</Button>
-			</FormControl>
-		</form>
+			<Button type="submit" variant="contained">Send</Button>
+		</Box>
 	);
 };
 
