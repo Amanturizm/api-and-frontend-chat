@@ -1,0 +1,8 @@
+#chat-body ::-webkit-scrollbar {
+    width: 1rem;
+}
+
+#chat-body ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #222;
+}
