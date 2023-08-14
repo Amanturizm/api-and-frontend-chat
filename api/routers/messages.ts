@@ -13,7 +13,7 @@ messagesRouter.get('/', async (req, res) => {
       return res.status(400).send({"error": "Invalid datetime"});
     }
 
-    const messageIndexByDatetime = messages.findIndex(message => message.datetime === queryDate)
+    const messageIndexByDatetime = messages.findIndex(message => message.datetime === queryDate);
     const messagesAfterDatetime = messages.slice(messageIndexByDatetime + 1, messages.length);
     return res.send(messagesAfterDatetime);
   }
@@ -24,7 +24,7 @@ messagesRouter.get('/', async (req, res) => {
 
 messagesRouter.post('/',async (req, res) => {
   if (!req.body.author || !req.body.message) {
-    res.sendStatus(400)
+    res.status(400)
        .send({"error": "Author and message must be present in the request"});
     return;
   }
